@@ -14,6 +14,43 @@
 // confirm on the organization's own site before relying on them.
 
 window.ILSA_DATA = {
+  // Executive board, shown on the home page and the About the Board page.
+  // To change the board, edit these entries and swap the photo in img/.
+  board: [
+    {
+      role: "President", name: "Grace Nguyen", year: "3L", hometown: "Yorba Linda, CA",
+      quote: "The intersectionality of cultural interactions and diversity in international law's legal framework really interested me.",
+      email: "gnguyen3@umassd.edu", photo: "img/board-grace.jpg"
+    },
+    {
+      role: "Vice President", name: "Eva Lynn Anderson", year: "2L", hometown: "Rochester, NY",
+      quote: "I want to work in public international law, and I want to help other students know that those doors are open to them.",
+      email: "eanderson18@umassd.edu", photo: "img/board-eva.jpg"
+    },
+    {
+      role: "Secretary", name: "Natasha Macarchuk", year: "2L", hometown: "Westchester, NY",
+      quote: "I find international law interesting to learn about and discuss, and I value international perspectives.",
+      email: "nmacarchuk@umassd.edu", photo: "img/board-natasha.jpg"
+    },
+    {
+      role: "Treasurer", name: "Adam Grocholski", year: "3L", hometown: "Texas",
+      quote: "I joined ILSA to engage in discussions about different cultures and viewpoints.",
+      email: "agrocholski@umassd.edu", photo: "img/board-adam.jpg"
+    },
+    {
+      role: "Public Relations", name: "Bethany Smith", year: "1L", hometown: "Putnam, CT",
+      quote: "I am passionate about the role international law plays in building lasting peace between people groups and protecting women's rights throughout the globe.",
+      email: "bsmith28@umassd.edu", photo: "img/board-bethany.jpg"
+    }
+  ],
+
+  // General Body Meetings. Dates are YYYY-MM-DD; past ones are marked automatically.
+  meetings: [
+    { date: "2026-09-09", label: "Meet the board" },
+    { date: "2026-10-14", label: "Mid-semester stop" },
+    { date: "2026-11-18", label: "Final descent" }
+  ],
+
   organizations: [
     {
       title: "ABA Section of International Law",

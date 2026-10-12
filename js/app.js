@@ -33,17 +33,6 @@
       if (value) node.textContent = value;
     });
 
-    var footer = document.getElementById("footer-links");
-    [["Instagram", config.instagram], ["LinkedIn", config.linkedin], ["Newsletter", config.newsletter]]
-      .filter(function (pair) { return pair[1]; })
-      .forEach(function (pair, i) {
-        if (i) footer.appendChild(document.createTextNode(" · "));
-        footer.appendChild(el("a", { href: pair[1], target: "_blank", rel: "noopener", text: pair[0] }));
-      });
-    if (config.contactEmail) {
-      if (footer.childNodes.length) footer.appendChild(document.createTextNode(" · "));
-      footer.appendChild(el("a", { href: "mailto:" + config.contactEmail, text: config.contactEmail }));
-    }
   }
 
   // Cards
@@ -154,6 +143,71 @@
     updateProgress();
   }
 
+  // Board
+  function boardCard(person, full) {
+    var photo = el("img", { src: person.photo, alt: "Photo of " + person.name, loading: "lazy", width: "600", height: "600" });
+    if (!full) {
+      return el("a", { class: "board-mini", href: "board.html#" + slug(person.name) }, [
+        photo, el("span", { class: "board-role", text: person.role }), el("span", { class: "board-name", text: person.name })
+      ]);
+    }
+    return el("article", { class: "board-card", id: slug(person.name) }, [
+      photo,
+      el("div", {}, [
+        el("p", { class: "board-role", text: person.role }),
+        el("h2", { text: person.name }),
+        el("p", { class: "board-meta", text: person.year + " \u00b7 " + person.hometown }),
+        el("blockquote", { text: "\u201c" + person.quote + "\u201d" }),
+        el("a", { class: "board-email", href: "mailto:" + person.email, text: person.email })
+      ])
+    ]);
+  }
+
+  function slug(text) { return text.toLowerCase().replace(/[^a-z]+/g, "-"); }
+
+  function renderBoard() {
+    var people = data.board || [];
+    var strip = document.getElementById("board-strip");
+    var list = document.getElementById("board-list");
+    if (strip) people.forEach(function (p) { strip.appendChild(boardCard(p, false)); });
+    if (list) people.forEach(function (p) { list.appendChild(boardCard(p, true)); });
+    if (list && location.hash) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) target.scrollIntoView();
+    }
+  }
+
+  // Meetings
+  function renderMeetings() {
+    var list = document.getElementById("meeting-list");
+    if (!list) return;
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var next = null;
+    (data.meetings || []).forEach(function (m) {
+      var parts = m.date.split("-");
+      var day = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+      var past = day < today;
+      if (!past && !next) next = day;
+      list.appendChild(el("li", { class: "stop" + (past ? " is-past" : "") + (day === next ? " is-next" : "") }, [
+        el("span", { class: "stop-date" }, [
+          el("span", { class: "stop-month", text: day.toLocaleDateString("en-US", { month: "short" }) }),
+          el("span", { class: "stop-day", text: String(day.getDate()).padStart(2, "0") }),
+          el("span", { class: "stop-dow", text: day.toLocaleDateString("en-US", { weekday: "short" }) })
+        ]),
+        el("span", { class: "stop-label", text: m.label + (past ? " (done)" : day === next ? " (next up!)" : "") })
+      ]));
+    });
+    var note = document.getElementById("next-meeting");
+    if (next) {
+      var days = Math.round((next - today) / 86400000);
+      note.textContent = days === 0 ? "That's today. See you at noon!"
+        : days === 1 ? "Our next meeting is tomorrow. See you there!"
+        : "Our next meeting is in " + days + " days. See you there!";
+    } else {
+      note.textContent = "That's a wrap for this semester. Follow us on Instagram for what's next.";
+    }
+  }
+
   // Speaker request form
   function setupSpeakerForm() {
     var form = document.getElementById("speaker-form");
@@ -236,8 +290,12 @@
   }
 
   applyConfig();
-  renderFilters();
-  renderSections();
-  renderChecklist();
-  setupSpeakerForm();
+  renderBoard();
+  renderMeetings();
+  if (document.getElementById("search-input")) {
+    renderFilters();
+    renderSections();
+    renderChecklist();
+    setupSpeakerForm();
+  }
 })();
