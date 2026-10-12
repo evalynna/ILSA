@@ -1,4 +1,4 @@
-# ILSA Get Involved
+# UMass Law ILSA
 
 A one-page member guide for the ILSA chapter. It shows members how to get involved with the ABA, ABILA, IBA, ASIL and ILSA. It covers volunteering, internships and fellowships, research and legal writing, and has a form for requesting speakers.
 
@@ -18,7 +18,11 @@ It's a plain static site (HTML, CSS and JavaScript) with no build step.
 | --- | --- |
 | Chapter name, school, contact email, form endpoint, social links | `js/config.js` |
 | Opportunities and checklist items | `js/data.js` |
-| Section headings and intro text | `index.html` |
+| Board members (name, role, quote, photo) and meeting dates | `js/data.js` |
+| Home page text and photo gallery | `index.html` |
+| About the Board intro | `board.html` |
+| Member guide headings and speaker form | `get-involved.html` |
+| Logo and photos | `img/` |
 | Colors and layout | `css/styles.css` |
 
 To add an opportunity, copy an existing entry in `js/data.js` and change its fields. New organizations show up in the filter automatically.
