@@ -44,6 +44,40 @@ window.ILSA_DATA = {
     }
   ],
 
+  // Dates to know, shown at the top of Get Involved with reminder buttons.
+  // start/end are YYYY-MM-DD. time is optional (24h, Eastern). Past dates drop off automatically.
+  // approx: true means the real date is not announced yet; "start" is then the day to check back.
+  dates: [
+    {
+      id: "gbm-oct", kind: "Meeting", org: "ILSA", title: "General Body Meeting: Mid-semester stop",
+      start: "2026-10-14", time: "12:00", minutes: 60, location: "Room 117, UMass Law",
+      note: "12 PM in Room 117. Bring your lunch."
+    },
+    {
+      id: "ilw-2026", kind: "Conference", org: "ABILA", title: "International Law Weekend 2026",
+      start: "2026-10-22", end: "2026-10-24", location: "New York City Bar Association and Fordham University School of Law, New York, NY",
+      note: "New York City. Student registration is $15 for ABILA members (student membership is free) and $25 for non-members.",
+      url: "https://www.ila-americanbranch.org/ilw-2026-registration/"
+    },
+    {
+      id: "gbm-nov", kind: "Meeting", org: "ILSA", title: "General Body Meeting: Final descent",
+      start: "2026-11-18", time: "12:00", minutes: 60, location: "Room 117, UMass Law",
+      note: "12 PM in Room 117. Last meeting of the semester."
+    },
+    {
+      id: "icj-fellowship", kind: "Deadline", org: "ICJ", title: "ICJ Judicial Fellowship: university nominations",
+      start: "2027-01-11", approx: true, label: "Expected early Feb 2027",
+      note: "Your law school nominates you; you cannot apply directly. Last cycle closed February 5, 2026. The reminder lands in January so you have time to ask about a nomination.",
+      url: "https://www.icj-cij.org/en/judicial-fellows-program"
+    },
+    {
+      id: "asil-2027", kind: "Conference", org: "ASIL", title: "ASIL 121st Annual Meeting",
+      start: "2027-04-14", end: "2027-04-16", location: "Washington, D.C.",
+      note: "Washington, D.C., April 14 to 16, 2027. Watch for the call for student volunteers.",
+      url: "https://www.asil.org/annual-meeting"
+    }
+  ],
+
   // General Body Meetings. Dates are YYYY-MM-DD; past ones are marked automatically.
   meetings: [
     { date: "2026-09-09", label: "Meet the board" },
@@ -122,7 +156,7 @@ window.ILSA_DATA = {
       body: "ABILA and ILSA's annual conference in New York relies on student volunteers to staff panels and registration, often in exchange for free attendance.",
       tags: ["conference", "networking"],
       url: "https://www.ila-americanbranch.org/",
-      when: "Each fall, usually October"
+      when: "October 22 to 24, 2026, New York City"
     },
     {
       title: "Help with ASIL Annual Meeting",
@@ -130,7 +164,7 @@ window.ILSA_DATA = {
       body: "Student volunteers help run sessions at the ASIL Annual Meeting and get to hear from leading practitioners, judges, and academics.",
       tags: ["conference", "networking"],
       url: "https://www.asil.org/",
-      when: "Each spring"
+      when: "April 14 to 16, 2027, Washington, D.C."
     },
     {
       title: "ABA committee volunteer",
@@ -172,11 +206,12 @@ window.ILSA_DATA = {
       url: "https://www.icc-cpi.int/jobs"
     },
     {
-      title: "ICJ University Traineeship Programme",
+      title: "ICJ Judicial Fellowship Programme",
       org: "ICJ",
       body: "Recent graduates nominated by their universities can work with judges of the International Court of Justice for about ten months.",
       tags: ["fellowship", "post-grad", "courts"],
-      url: "https://www.icj-cij.org/"
+      url: "https://www.icj-cij.org/en/judicial-fellows-program",
+      when: "Nominations expected early February 2027 (last cycle closed February 5, 2026)"
     },
     {
       title: "U.S. Department of State, Office of the Legal Adviser",
@@ -204,7 +239,8 @@ window.ILSA_DATA = {
       org: "Fulbright",
       body: "Funding for a year of research, study, or teaching abroad after graduation. Many law students propose international law research projects.",
       tags: ["fellowship", "research", "post-grad"],
-      url: "https://us.fulbrightonline.org/"
+      url: "https://us.fulbrightonline.org/",
+      when: "The 2027-28 national deadline was October 6, 2026. Plan ahead for the next cycle."
     }
   ],
 

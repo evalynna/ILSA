@@ -218,6 +218,126 @@
     }
   }
 
+  // Calendar reminders (.ics download and Google Calendar link)
+  function compact(dateStr) { return dateStr.replace(/-/g, ""); }
+
+  function nextDay(dateStr) {
+    var p = dateStr.split("-");
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, +p[2] + 1));
+    return d.toISOString().slice(0, 10);
+  }
+
+  function endTime(item) {
+    var p = item.time.split(":");
+    var total = +p[0] * 60 + +p[1] + (item.minutes || 60);
+    return String(Math.floor(total / 60)).padStart(2, "0") + String(total % 60).padStart(2, "0") + "00";
+  }
+
+  function calTitle(item) { return (item.approx ? "Check: " : "") + item.title; }
+
+  function calDetails(item) {
+    return [item.note, item.url, "From the UMass Law ILSA member guide."].filter(Boolean).join("\n\n");
+  }
+
+  function icsEscape(text) {
+    return String(text).replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1");
+  }
+
+  function icsFor(item) {
+    var start = compact(item.start);
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//UMass Law ILSA//Member Guide//EN", "BEGIN:VEVENT",
+      "UID:" + item.id + "@umasslaw-ilsa",
+      "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z"];
+    if (item.time) {
+      lines.push("DTSTART;TZID=America/New_York:" + start + "T" + item.time.replace(":", "") + "00");
+      lines.push("DTEND;TZID=America/New_York:" + start + "T" + endTime(item));
+    } else {
+      lines.push("DTSTART;VALUE=DATE:" + start);
+      lines.push("DTEND;VALUE=DATE:" + compact(nextDay(item.end || item.start)));
+    }
+    lines.push("SUMMARY:" + icsEscape(calTitle(item)));
+    lines.push("DESCRIPTION:" + icsEscape(calDetails(item)));
+    if (item.location) lines.push("LOCATION:" + icsEscape(item.location));
+    lines.push("BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + icsEscape(calTitle(item)), "TRIGGER:-P7D", "END:VALARM");
+    lines.push("BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + icsEscape(calTitle(item)), "TRIGGER:-P1D", "END:VALARM");
+    lines.push("END:VEVENT", "END:VCALENDAR");
+    return lines.join("\r\n");
+  }
+
+  function googleUrl(item) {
+    var start = compact(item.start);
+    var dates = item.time
+      ? start + "T" + item.time.replace(":", "") + "00/" + start + "T" + endTime(item)
+      : start + "/" + compact(nextDay(item.end || item.start));
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+      "&text=" + encodeURIComponent(calTitle(item)) +
+      "&dates=" + dates +
+      (item.time ? "&ctz=America/New_York" : "") +
+      "&details=" + encodeURIComponent(calDetails(item)) +
+      (item.location ? "&location=" + encodeURIComponent(item.location) : "");
+  }
+
+  function remindButtons(item) {
+    var ics = el("a", {
+      class: "remind-btn", download: item.id + ".ics",
+      href: "data:text/calendar;charset=utf-8," + encodeURIComponent(icsFor(item)),
+      text: "Remind me"
+    });
+    ics.setAttribute("aria-label", "Remind me: download a calendar file for " + item.title);
+    var google = el("a", { class: "remind-alt", href: googleUrl(item), target: "_blank", rel: "noopener", text: "Google Calendar" });
+    google.setAttribute("aria-label", "Add " + item.title + " to Google Calendar");
+    return [ics, google];
+  }
+
+  function parseDay(dateStr) {
+    var p = dateStr.split("-");
+    return new Date(+p[0], +p[1] - 1, +p[2]);
+  }
+
+  function renderDates() {
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var items = (data.dates || []).filter(function (item) {
+      return parseDay(item.end || item.start) >= today;
+    }).sort(function (x, y) { return x.start < y.start ? -1 : 1; });
+
+    document.querySelectorAll("[data-remind]").forEach(function (slot) {
+      var match = (data.dates || []).filter(function (item) { return item.id === slot.getAttribute("data-remind"); })[0];
+      if (match && parseDay(match.end || match.start) >= today) remindButtons(match).forEach(function (b) { slot.appendChild(b); });
+    });
+
+    var list = document.getElementById("dates-list");
+    if (!list) return;
+    if (!items.length) { list.closest(".section").classList.add("is-empty"); return; }
+
+    items.forEach(function (item) {
+      var start = parseDay(item.start);
+      var days = Math.round((start - today) / 86400000);
+      var month = start.toLocaleDateString("en-US", { month: "short" });
+      var dayText = String(start.getDate()).padStart(2, "0");
+      if (item.end && !item.approx) dayText += "\u2013" + String(parseDay(item.end).getDate()).padStart(2, "0");
+      var countdown = item.approx ? item.label
+        : days <= 0 ? "Happening now" : days === 1 ? "Tomorrow" : "In " + days + " days";
+      var soon = !item.approx && days <= 14;
+
+      var title = item.url
+        ? el("a", { href: item.url, target: "_blank", rel: "noopener", text: item.title })
+        : document.createTextNode(item.title);
+
+      list.appendChild(el("li", { class: "date-row" + (soon ? " is-soon" : "") }, [
+        el("div", { class: "date-when" }, item.approx
+          ? [el("span", { class: "label", text: "Date" }), el("span", { class: "date-day", text: "TBA" })]
+          : [el("span", { class: "label", text: month + " " + start.getFullYear() }), el("span", { class: "date-day", text: dayText })]),
+        el("div", { class: "date-what" }, [
+          el("span", { class: "label", text: item.kind + " / " + item.org }),
+          el("h3", {}, [title]),
+          item.note ? el("p", { text: item.note }) : null
+        ]),
+        el("span", { class: "date-count", text: countdown }),
+        el("div", { class: "date-actions" }, remindButtons(item))
+      ]));
+    });
+  }
+
   // Speaker request form
   function setupSpeakerForm() {
     var form = document.getElementById("speaker-form");
@@ -302,6 +422,7 @@
   applyConfig();
   renderBoard();
   renderMeetings();
+  renderDates();
   if (document.getElementById("search-input")) {
     renderFilters();
     renderSections();
