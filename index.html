@@ -8,7 +8,7 @@
   <link rel="icon" href="img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,15 +16,15 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <img class="brand-mark" src="img/emblem.png" alt="" width="56" height="44">
-        <span>
+        <img class="brand-mark" src="img/emblem.png" alt="" width="168" height="132">
+        <span class="brand-text">
           <span class="brand-name">UMass Law ILSA</span>
           <span class="brand-school">International Law Students Association</span>
         </span>
       </a>
       <nav class="site-nav" aria-label="Site">
         <a href="index.html" aria-current="page">Home</a>
-        <a href="board.html">About the Board</a>
+        <a href="board.html">The Board</a>
         <a href="index.html#meetings">Meetings</a>
         <a href="index.html#photos">Photos</a>
         <a href="get-involved.html">Get Involved</a>
@@ -34,128 +34,122 @@
   </header>
 
   <main id="main">
-    <section class="hero hero-home">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="eyebrow">Welcome, we're glad you're here</p>
-          <h1>The University of Massachusetts School of Law <span>International Law Students Association</span></h1>
-          <p class="lede">We're a group of law students who are curious about the world beyond our borders: human rights, trade, diplomacy, arbitration, and everything in between. You don't need a passport, a plan, or any experience. Just come as you are.</p>
+    <section class="masthead">
+      <div class="wrap">
+        <p class="label">The University of Massachusetts School of Law</p>
+        <h1>International <span class="row2">Law Students</span> <span class="gold">Association</span></h1>
+        <div class="masthead-foot">
+          <p class="lede">We're law students who are curious about the world beyond our borders: human rights, trade, diplomacy, arbitration, and everything in between. No passport, plan, or experience needed. Come as you are.</p>
           <div class="btn-row">
             <a class="btn" href="#meetings">Come to a meeting</a>
-            <a class="btn btn-ghost" href="board.html">Meet the board</a>
+            <a class="btn btn-line" href="board.html">Meet the board</a>
           </div>
         </div>
-        <img class="hero-logo" src="img/logo.png" alt="International Law Students Association, University of Massachusetts School of Law logo: a gold scale of justice joined to a globe" width="1080" height="1080">
+        <img class="seal" src="img/logo.png" alt="ILSA logo: a gold scale of justice joined to a globe" width="1080" height="1080">
       </div>
+      <p class="departure" id="departure" aria-live="polite"></p>
     </section>
 
     <section class="section" id="about">
-      <div class="wrap">
-        <h2>What we're about</h2>
-        <p class="section-intro">International law can feel far away from a law school classroom. We're here to close that gap.</p>
-        <div class="grid three">
-          <article class="card feature">
-            <span class="feature-icon" aria-hidden="true">&#127758;</span>
-            <h3>Open doors</h3>
-            <p>We share the memberships, conferences, internships and fellowships that get students into international law, and we show you how to take the first step.</p>
-          </article>
-          <article class="card feature">
-            <span class="feature-icon" aria-hidden="true">&#129309;</span>
-            <h3>Find your people</h3>
-            <p>Meetings are relaxed and welcoming. Bring your lunch, bring a friend, bring the question you were too nervous to ask in class.</p>
-          </article>
-          <article class="card feature">
-            <span class="feature-icon" aria-hidden="true">&#127908;</span>
-            <h3>Hear from the field</h3>
-            <p>We bring practitioners, professors and advocates to campus, and we take your requests. Tell us who you want to hear from.</p>
-          </article>
+      <div class="wrap rail">
+        <p class="label rail-label"><span>01</span> What we're about</p>
+        <div>
+          <p class="statement">International law can feel far away from a law school classroom. <strong>We're here to close that gap.</strong></p>
+          <ol class="pillars">
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 42V6h20v36M30 10l8 3v29H6M24 24v4"/></svg><div><h3>Open doors</h3><p>We share the memberships, conferences, internships and fellowships that get students into international law, and we show you how to take the first step.</p></div></li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="16" r="7"/><circle cx="34" cy="19" r="5"/><path d="M4 40c0-8 6-13 13-13s13 5 13 13M32 29c6 0 12 4 12 11"/></svg><div><h3>Find your people</h3><p>Meetings are relaxed and welcoming. Bring your lunch, bring a friend, bring the question you were too nervous to ask in class.</p></div></li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="18" y="5" width="12" height="22" rx="6"/><path d="M10 22c0 8 6 13 14 13s14-5 14-13M24 35v8M16 43h16"/></svg><div><h3>Hear from the field</h3><p>We bring practitioners, professors and advocates to campus, and we take requests. Tell us who you want to hear from.</p></div></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="section section-blue" id="meetings">
-      <div class="wrap two-col meetings">
-        <div>
-          <p class="eyebrow">Fall 2026</p>
-          <h2>General Body Meetings</h2>
-          <p class="section-intro">Three stops on the itinerary this semester. Pack your questions, we'll handle the agenda. Passport not required.</p>
-          <ol class="stops" id="meeting-list"></ol>
-          <p class="where"><span>12 PM</span><span>Room 117</span></p>
-          <p class="next-up" id="next-meeting" aria-live="polite"></p>
+    <section class="section section-sky" id="meetings">
+      <div class="wrap rail">
+        <p class="label rail-label"><span>02</span> Fall 2026 itinerary</p>
+        <div class="itinerary">
+          <div>
+            <h2>General Body Meetings</h2>
+            <p class="section-intro">Three stops this semester. Pack your questions, we'll handle the agenda.</p>
+            <ol class="tickets" id="meeting-list"></ol>
+          </div>
+          <img class="flyer" src="img/gbm-fall-2026.jpg" alt="Fall 2026 General Body Meetings flyer: Wednesday September 9, Wednesday October 14 and Wednesday November 18, 12 PM in Room 117" width="900" height="1137" loading="lazy">
         </div>
-        <img class="flyer" src="img/gbm-fall-2026.jpg" alt="Fall 2026 General Body Meetings flyer: Wednesday September 9, Wednesday October 14 and Wednesday November 18, 12 PM in Room 117" width="900" height="1137" loading="lazy">
       </div>
     </section>
 
     <section class="section" id="board-preview">
-      <div class="wrap">
-        <h2>Meet your board</h2>
-        <p class="section-intro">Five students who would be happy to talk with you about classes, careers, or where to find the best coffee before a noon meeting.</p>
-        <div class="board-strip" id="board-strip"></div>
-        <p><a class="btn" href="board.html">Read about the board</a></p>
-      </div>
-    </section>
-
-    <section class="section" id="photos">
-      <div class="wrap">
-        <h2>ILSA out in the world</h2>
-        <p class="section-intro">Conferences, courtrooms and the people we meet along the way.</p>
-        <div class="gallery">
-          <figure class="wide">
-            <img src="img/photo-group.jpg" alt="Seven ILSA members in business attire wearing conference name badges, standing together at International Law Weekend 2025 in New York City" width="1200" height="948" loading="lazy">
-            <figcaption>International Law Weekend in New York City, 2025.</figcaption>
-          </figure>
-          <figure>
-            <img src="img/photo-aba.jpg" alt="Three people smiling in front of an ABA International Law Section banner" width="1000" height="1342" loading="lazy">
-            <figcaption>Stopping by the ABA International Law Section.</figcaption>
-          </figure>
-          <figure>
-            <img src="img/photo-moot.jpg" alt="Three ILSA members standing together in the Gorman Moot Courtroom" width="1000" height="1082" loading="lazy">
-            <figcaption>In the Gorman Moot Courtroom at International Law Weekend, NYC 2025.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-accent">
-      <div class="wrap cta">
+      <div class="wrap rail">
+        <p class="label rail-label"><span>03</span> Your board</p>
         <div>
-          <h2>Ready to get involved?</h2>
-          <p class="section-intro">We put together a member guide to the ABA, ABILA, IBA, ASIL and ILSA, with volunteer roles, internships, fellowships and writing opportunities, plus a checklist to get you started.</p>
+          <h2>Five students who'd be happy to talk.</h2>
+          <p class="section-intro">About classes, careers, or where to find the best coffee before a noon meeting.</p>
+          <div class="crew" id="board-strip"></div>
+          <a class="text-link" href="board.html">Read about the board</a>
         </div>
-        <div class="btn-row">
-          <a class="btn" href="get-involved.html">Open the member guide</a>
-          <a class="btn btn-ghost" href="get-involved.html#speakers">Request a speaker</a>
+      </div>
+    </section>
+
+    <section class="section section-ink" id="photos">
+      <div class="wrap rail">
+        <p class="label rail-label"><span>04</span> Field notes</p>
+        <div>
+          <h2>ILSA out in the world</h2>
+          <div class="collage">
+            <figure class="c1">
+              <img src="img/photo-group.jpg" alt="Seven ILSA members in business attire wearing conference name badges, standing together at International Law Weekend 2025 in New York City" width="1200" height="948" loading="lazy">
+              <figcaption><span>New York City, 2025</span> International Law Weekend</figcaption>
+            </figure>
+            <figure class="c2">
+              <img src="img/photo-aba.jpg" alt="Three people smiling in front of an ABA International Law Section banner" width="1000" height="1342" loading="lazy">
+              <figcaption><span>ABA</span> Stopping by the International Law Section</figcaption>
+            </figure>
+            <figure class="c3">
+              <img src="img/photo-moot.jpg" alt="Three ILSA members standing together in the Gorman Moot Courtroom" width="1000" height="1082" loading="lazy">
+              <figcaption><span>New York City, 2025</span> Gorman Moot Courtroom, International Law Weekend</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guide">
+      <div class="wrap rail">
+        <p class="label rail-label"><span>05</span> Member guide</p>
+        <div class="guide-links">
+          <a href="get-involved.html"><span class="label">Guide</span><strong>Find your way into the ABA, ABILA, IBA and ASIL</strong><span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="get-involved.html#careers"><span class="label">Careers</span><strong>Internships and fellowships</strong><span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="get-involved.html#speakers"><span class="label">Events</span><strong>Request a speaker</strong><span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer" id="contact">
-    <div class="wrap footer-inner">
-      <div class="footer-brand">
-        <img src="img/logo-wide.png" alt="University of Massachusetts School of Law ILSA, International Law Students Association" width="632" height="316">
-      </div>
-      <div>
-        <h2>Say hello</h2>
-        <p><strong>UMass Law ILSA</strong><br>
-          <a href="mailto:ilsa.umasslaw@gmail.com">ilsa.umasslaw@gmail.com</a><br>
-          <a href="https://www.instagram.com/ilsa.umasslaw/" target="_blank" rel="noopener">@ilsa.umasslaw on Instagram</a></p>
-        <p class="muted">Questions, ideas, or just curious about international law? Email us or grab any board member after class. We'd love to hear from you.</p>
-      </div>
-      <div>
-        <h2>Explore</h2>
-        <p class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="board.html">About the Board</a>
-          <a href="index.html#meetings">Meetings</a>
-          <a href="get-involved.html">Get Involved</a>
-          <a href="get-involved.html#speakers">Request a speaker</a>
-        </p>
-      </div>
-    </div>
     <div class="wrap">
-      <p class="fineprint">The University of Massachusetts School of Law International Law Students Association. Opportunity details, fees, and deadlines change, so confirm on each organization's site before applying.</p>
+      <p class="label">Contact</p>
+      <p class="footer-shout">Questions? Ideas? <span>Say hello.</span></p>
+      <a class="footer-mail" href="mailto:ilsa.umasslaw@gmail.com">ilsa.umasslaw@gmail.com</a>
+      <div class="footer-grid">
+        <div>
+          <p class="label">Who</p>
+          <p>UMass Law ILSA<br>The University of Massachusetts School of Law International Law Students Association</p>
+        </div>
+        <div>
+          <p class="label">Find us</p>
+          <p><a href="https://www.instagram.com/ilsa.umasslaw/" target="_blank" rel="noopener">@ilsa.umasslaw on Instagram</a><br>General Body Meetings, Wednesdays at 12 PM, Room 117</p>
+        </div>
+        <div>
+          <p class="label">Pages</p>
+          <p class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="board.html">The Board</a>
+            <a href="get-involved.html">Get Involved</a>
+            <a href="get-involved.html#speakers">Request a speaker</a>
+          </p>
+        </div>
+      </div>
+      <p class="fineprint">Opportunity details, fees, and deadlines change. Confirm on each organization's site before applying.</p>
     </div>
   </footer>
 
