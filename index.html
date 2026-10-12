@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ILSA Get Involved</title>
+  <meta name="description" content="How ILSA members can get involved with the ABA, ABILA, IBA, ASIL and more: volunteering, internships, fellowships, research and writing, and speaker requests.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">ILSA</span>
+        <div>
+          <p class="brand-name" data-config="chapterName">ILSA Chapter</p>
+          <p class="brand-school" data-config="school">Your Law School</p>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#start">Start here</a>
+        <a href="#organizations">Organizations</a>
+        <a href="#volunteer">Volunteer</a>
+        <a href="#careers">Internships &amp; fellowships</a>
+        <a href="#writing">Research &amp; writing</a>
+        <a href="#speakers" class="nav-cta">Request a speaker</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Get involved in international law</h1>
+        <p class="lede">A member guide to joining the ABA, ABILA, IBA, ASIL and ILSA, finding volunteer roles, internships, fellowships, and research and writing opportunities, and bringing speakers to campus.</p>
+        <div class="search">
+          <label for="search-input" class="visually-hidden">Search opportunities</label>
+          <input id="search-input" type="search" placeholder="Search, e.g. human rights, fellowship, IBA" autocomplete="off">
+          <div class="filters" role="group" aria-label="Filter by organization" id="org-filters"></div>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="start" class="section">
+      <div class="wrap two-col">
+        <div>
+          <h2>Start here</h2>
+          <p class="section-intro">New to the chapter? Work through this checklist over the semester. Your progress is saved in this browser.</p>
+          <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p class="progress-label" id="progress-label"></p>
+        </div>
+        <ol class="checklist" id="checklist"></ol>
+      </div>
+    </section>
+
+    <section id="organizations" class="section">
+      <div class="wrap">
+        <h2>Organizations to join</h2>
+        <p class="section-intro">Student memberships are the easiest way in. Join, then pick a committee or interest group so you start getting calls for volunteers and writers.</p>
+        <div class="grid" data-section="organizations"></div>
+      </div>
+    </section>
+
+    <section id="volunteer" class="section">
+      <div class="wrap">
+        <h2>Volunteer</h2>
+        <p class="section-intro">Conferences and competitions run on student volunteers, and it's the fastest way to meet practitioners.</p>
+        <div class="grid" data-section="volunteer"></div>
+      </div>
+    </section>
+
+    <section id="careers" class="section">
+      <div class="wrap">
+        <h2>Internships &amp; fellowships</h2>
+        <p class="section-intro">International positions often have deadlines six to twelve months ahead. Check each program's site for current dates and eligibility.</p>
+        <div class="grid" data-section="careers"></div>
+      </div>
+    </section>
+
+    <section id="writing" class="section">
+      <div class="wrap">
+        <h2>Research &amp; legal writing</h2>
+        <p class="section-intro">Short pieces for newsletters and blogs are a realistic first publication and a good writing sample.</p>
+        <div class="grid" data-section="writing"></div>
+      </div>
+    </section>
+
+    <section id="speakers" class="section section-accent">
+      <div class="wrap two-col">
+        <div>
+          <h2>Request a speaker</h2>
+          <p class="section-intro">Want to hear from a practitioner, judge, diplomat, or professor? Tell the board who or what you have in mind and we'll work on bringing them to campus or online.</p>
+          <ul class="tips">
+            <li>Suggest a topic even if you don't have a specific speaker.</li>
+            <li>Give at least four weeks of lead time when you can.</li>
+            <li>Mention any student group or class that might co-sponsor.</li>
+          </ul>
+        </div>
+
+        <form id="speaker-form" class="form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Your name <span aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-topic">Topic or theme <span aria-hidden="true">*</span></label>
+            <input id="f-topic" name="topic" required placeholder="e.g. Careers in international arbitration">
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-speaker">Suggested speaker</label>
+              <input id="f-speaker" name="speaker" placeholder="Name, if you have one">
+            </div>
+            <div class="field">
+              <label for="f-affiliation">Speaker's organization</label>
+              <input id="f-affiliation" name="affiliation" placeholder="e.g. ABA, IBA, a firm or NGO">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-format">Format</label>
+              <select id="f-format" name="format">
+                <option>No preference</option>
+                <option>In person</option>
+                <option>Virtual</option>
+                <option>Hybrid</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-type">Event type</label>
+              <select id="f-type" name="eventType">
+                <option>Talk / lecture</option>
+                <option>Panel</option>
+                <option>Career conversation</option>
+                <option>Workshop</option>
+                <option>Lunch &amp; learn</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-dates">Preferred dates</label>
+              <input id="f-dates" name="dates" placeholder="e.g. Late February, weekday lunch">
+            </div>
+            <div class="field">
+              <label for="f-audience">Expected audience</label>
+              <input id="f-audience" name="audience" type="number" min="1" placeholder="e.g. 30">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-notes">Why this speaker or topic? Anything else we should know?</label>
+            <textarea id="f-notes" name="notes" rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send request</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Opportunity details, fees, and deadlines change. Confirm on each organization's site before applying.</p>
+      <p id="footer-links"></p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
