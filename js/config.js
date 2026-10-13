@@ -12,5 +12,17 @@ window.ILSA_CONFIG = {
   // submitted directly from the page instead of opening an email draft.
   formEndpoint: "",
 
-  instagram: "https://www.instagram.com/ilsa.umasslaw/"
+  instagram: "https://www.instagram.com/ilsa.umasslaw/",
+
+  // Crowdfunding (shown on donate.html). To update the progress bar, copy the
+  // "Donated" and "Donors" numbers from the GiveCampus page into raised and donors,
+  // and change updated to today's date.
+  fundraiser: {
+    url: "https://www.givecampus.com/s/jwhhjc",
+    goal: 500,
+    raised: 0,
+    donors: 0,
+    ends: "2026-10-26T23:59:00-04:00",
+    updated: "2026-10-13"
+  }
 };
