@@ -66,7 +66,7 @@
   function layout() {
     var w = Math.max(60, box.clientWidth), h = Math.max(40, box.clientHeight);
     box.setAttribute("viewBox", "0 0 " + w + " " + h);
-    var d = "M8 " + (h - 10) + " Q " + (w / 2) + " " + (-h * 0.55) + " " + (w - 8) + " " + (h - 10);
+    var d = "M36 " + (h - 18) + " Q " + (w / 2) + " " + (-h * 0.55) + " " + (w - 36) + " " + (h - 18);
     path.setAttribute("d", d);
     trail.setAttribute("d", d);
     total = path.getTotalLength();
