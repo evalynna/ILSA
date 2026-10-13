@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support ILSA | UMass Law ILSA</title>
+  <meta name="description" content="Help UMass Law ILSA reach its $500 crowdfunding goal on GiveCampus.">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/donate.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="ILSA at UMass Law, home">
+        <img class="brand-logo" src="img/ilsa-official.png" alt="ILSA" width="324" height="116">
+        <span class="brand-name">UMass Law</span>
+      </a>
+      <nav class="site-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="board.html">The Board</a>
+        <a href="index.html#meetings">Meetings</a>
+        <a href="index.html#ilw">NYC Weekend</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="get-involved.html#speakers">Speakers</a>
+        <a href="donate.html" aria-current="page">Donate</a>
+        <a href="https://myorgs.umassd.edu/ILSA/club_signup" class="nav-cta" target="_blank" rel="noopener">Join ILSA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head donate-head">
+      <div class="wrap">
+        <p class="label">Crowdfunding / 2026&ndash;27</p>
+        <h1>Help ILSA <span>take off</span></h1>
+        <p class="lede">We're raising <strong class="js-goal">$500</strong> to bring international law to life at UMass Law: speakers, potlucks, UN Observation Days and more. Every gift gets us a little closer to landing.</p>
+      </div>
+      <svg class="sky-doodle" viewBox="0 0 400 120" aria-hidden="true"><path d="M0 100 C 90 20, 200 120, 300 40 S 390 30, 400 10" /></svg>
+    </section>
+
+    <section class="section section-sky donate-main">
+      <div class="wrap">
+        <article class="pass" aria-labelledby="pass-title">
+          <div class="pass-main">
+            <div class="pass-top">
+              <p class="label">Boarding pass</p>
+              <p class="label pass-flight">Flight ILSA 500</p>
+            </div>
+            <h2 class="visually-hidden" id="pass-title">Fundraising progress</h2>
+
+            <div class="route">
+              <div class="route-end">
+                <span class="label">From</span>
+                <strong>$0</strong>
+                <span class="route-city">Dartmouth, MA</span>
+              </div>
+              <div class="route-path">
+                <svg viewBox="0 0 300 90" aria-hidden="true">
+                  <path class="route-trail" id="route-trail" d="M8 78 Q 150 -18 292 78" />
+                  <path class="route-done" id="route-done" d="M8 78 Q 150 -18 292 78" />
+                </svg>
+                <span class="plane" id="plane" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M2 11.5 21.5 3l-4.2 18-6.1-5.4-3.4 3.4v-5.1L17 6.8 6.4 13.3z"/></svg>
+                </span>
+              </div>
+              <div class="route-end route-to">
+                <span class="label">To</span>
+                <strong class="js-goal">$500</strong>
+                <span class="route-city">Our goal</span>
+              </div>
+            </div>
+
+            <div class="meter" role="progressbar" aria-label="Amount raised toward goal" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0" id="meter">
+              <span id="meter-fill"></span>
+            </div>
+
+            <div class="tally">
+              <p class="tally-big"><span id="raised">$0</span> <small>raised of <span class="js-goal">$500</span></small></p>
+              <dl class="tally-stats">
+                <div><dt class="label">Donors</dt><dd id="donors">0</dd></div>
+                <div><dt class="label">Progress</dt><dd id="pct">0%</dd></div>
+                <div><dt class="label">Boarding closes</dt><dd id="days">14 days</dd></div>
+              </dl>
+            </div>
+            <p class="pass-note" id="pass-note"></p>
+          </div>
+
+          <div class="pass-stub">
+            <div class="stub-rows">
+              <div><span class="label">Passenger</span><strong>You!</strong></div>
+              <div><span class="label">Gate</span><strong>GiveCampus</strong></div>
+              <div><span class="label">Closes</span><strong>Oct 26, 11:59 PM</strong></div>
+            </div>
+            <a class="btn stub-btn js-give" href="https://www.givecampus.com/s/jwhhjc" target="_blank" rel="noopener">Make a gift</a>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
+        </article>
+
+        <div class="stamps-wrap">
+          <h2>Passport stamps</h2>
+          <p class="section-intro">Every milestone earns a stamp. Help us fill the page.</p>
+          <ol class="stamps" id="stamps">
+            <li data-at="100"><span class="stamp"><b>$100</b><em>Wheels up</em></span></li>
+            <li data-at="250"><span class="stamp"><b>$250</b><em>Halfway there</em></span></li>
+            <li data-at="400"><span class="stamp"><b>$400</b><em>Final descent</em></span></li>
+            <li data-at="500"><span class="stamp"><b>$500</b><em>Landed!</em></span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="supports">
+      <div class="wrap rail">
+        <p class="label rail-label"><span>01</span> Where it goes</p>
+        <div>
+          <p class="statement">Your gift helps us bring international law <strong>off the page and into the room.</strong></p>
+          <ol class="pillars">
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="18" y="5" width="12" height="22" rx="6"/><path d="M10 22c0 8 6 13 14 13s14-5 14-13M24 35v8M16 43h16"/></svg><div><h3>Guest speakers</h3><p>Judges, attorneys and professors who bring real-world legal insight from around the globe, followed by open Q&amp;A and lively discussion.</p></div></li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 26h36M9 26c0 9 7 15 15 15s15-6 15-15M24 10v6M16 12l2 5M32 12l-2 5"/></svg><div><h3>Cultural potlucks</h3><p>Students bring a dish from their heritage and we connect over food, culture and shared values.</p></div></li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c6 6 6 30 0 36M24 6c-6 6-6 30 0 36"/></svg><div><h3>UN Observation Days</h3><p>Celebrations like World Peace Day and World Tourism Day that bring the global into our everyday.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-ink share">
+      <div class="wrap share-inner">
+        <div>
+          <p class="label share-kicker">No budget? No problem.</p>
+          <h2>Share the link</h2>
+          <p class="section-intro">Send it to a friend, a family member, or that one professor who loves international law. Shares count too.</p>
+        </div>
+        <div class="share-actions">
+          <button type="button" class="btn" id="share-btn">Share</button>
+          <button type="button" class="btn btn-line" id="copy-btn">Copy link</button>
+          <p class="share-status" id="share-status" role="status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <p class="footer-shout">Questions? Ideas? <span>Say hello.</span></p>
+      <a class="footer-mail" href="mailto:ilsa.umasslaw@gmail.com">ilsa.umasslaw@gmail.com</a>
+      <div class="footer-grid">
+        <div>
+          <p class="label">Who</p>
+          <p>UMass Law ILSA<br>The University of Massachusetts School of Law International Law Students Association</p>
+        </div>
+        <div>
+          <p class="label">Find us</p>
+          <p><a href="https://www.instagram.com/ilsa.umasslaw/" target="_blank" rel="noopener">@ilsa.umasslaw on Instagram</a><br>General Body Meetings, Wednesdays at 12 PM, Room 117</p>
+        </div>
+        <div>
+          <p class="label">Pages</p>
+          <p class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="board.html">The Board</a>
+            <a href="get-involved.html">Get Involved</a>
+            <a href="get-involved.html#speakers">Request a speaker</a>
+            <a href="https://myorgs.umassd.edu/ILSA/club_signup" target="_blank" rel="noopener">Join ILSA on MyOrgs</a>
+            <a href="donate.html">Support ILSA</a>
+          </p>
+        </div>
+      </div>
+      <p class="fineprint" id="fund-updated">Gifts are made securely through GiveCampus, UMass Dartmouth's crowdfunding platform. Questions about giving? giving@umassd.edu</p>
+    </div>
+  </footer>
+
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/donate.js"></script>
+</body>
+</html>
