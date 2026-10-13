@@ -1,0 +1,141 @@
+/* Donate page: a boarding pass to $500 */
+
+.donate-head { position: relative; overflow: hidden; }
+.donate-head h1 span { color: var(--gold); display: block; }
+.donate-head .lede strong { color: var(--gold); }
+.sky-doodle { position: absolute; right: -20px; bottom: 18px; width: min(46vw, 520px); fill: none; stroke: rgba(227, 181, 5, 0.55); stroke-width: 2.5; stroke-dasharray: 2 10; stroke-linecap: round; pointer-events: none; }
+
+.donate-main { padding-top: clamp(40px, 6vw, 80px); }
+
+/* Boarding pass card */
+.pass {
+  display: grid; grid-template-columns: minmax(0, 1fr) 290px;
+  background: var(--white); color: var(--ink);
+  border-radius: 22px; box-shadow: 10px 10px 0 var(--ink);
+  position: relative; overflow: hidden;
+}
+.pass-main { padding: clamp(22px, 3.5vw, 40px); }
+.pass-top { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 2px dashed var(--hair); }
+.pass-top .label:first-child { color: var(--gold-deep); }
+.pass-flight { color: var(--muted); }
+
+.route { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: end; gap: 12px; margin: 26px 0 14px; }
+.route-end { display: grid; gap: 2px; }
+.route-end .label { color: var(--muted); }
+.route-end strong { font-size: clamp(34px, 5vw, 60px); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; }
+.route-to { text-align: right; }
+.route-city { font: 500 12px/1.3 var(--mono); color: var(--muted); }
+.route-path { position: relative; height: clamp(70px, 9vw, 100px); }
+.route-path svg { width: 100%; height: 100%; overflow: visible; }
+.route-trail { fill: none; stroke: var(--hair); stroke-width: 3; stroke-dasharray: 3 9; stroke-linecap: round; }
+.route-done { fill: none; stroke: var(--gold); stroke-width: 4; stroke-linecap: round; }
+.plane {
+  position: absolute; left: 0; top: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  display: grid; place-items: center; border-radius: 50%; background: var(--ink);
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--gold);
+}
+.plane svg { width: 18px; height: 18px; fill: var(--gold); }
+
+.meter { height: 16px; border-radius: 99px; background: var(--sky); border: 2px solid var(--ink); overflow: hidden; }
+.meter span { display: block; height: 100%; width: 0; background: repeating-linear-gradient(-45deg, var(--gold) 0 10px, #f0c93a 10px 20px); border-right: 2px solid var(--ink); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+.meter span.is-zero { border-right: 0; }
+
+.tally { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 18px 32px; margin-top: 22px; }
+.tally-big { margin: 0; font-size: clamp(44px, 6.4vw, 84px); font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; }
+.tally-big small { display: block; font: 500 13px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.tally-stats { display: flex; gap: 0; margin: 0; }
+.tally-stats div { padding: 0 18px; border-left: 2px dashed var(--hair); }
+.tally-stats div:first-child { border-left: 0; padding-left: 0; }
+.tally-stats dt { color: var(--muted); }
+.tally-stats dd { margin: 4px 0 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; }
+.pass-note { margin: 22px 0 0; padding: 12px 16px; background: var(--sky); border-radius: 12px; font-size: 16px; }
+.pass-note:empty { display: none; }
+
+/* Tear-off stub */
+.pass-stub {
+  position: relative; background: var(--ink); color: var(--white);
+  padding: clamp(22px, 3vw, 34px) 26px; display: flex; flex-direction: column; gap: 22px;
+}
+.pass-stub::before {
+  content: ""; position: absolute; left: -1px; top: 18px; bottom: 18px; width: 0;
+  border-left: 3px dashed rgba(255, 255, 255, 0.45);
+}
+.pass::before, .pass::after {
+  content: ""; position: absolute; right: 290px; width: 36px; height: 36px; margin-right: -18px;
+  background: var(--sky); border-radius: 50%; z-index: 1;
+}
+.pass::before { top: -18px; }
+.pass::after { bottom: -18px; }
+.stub-rows { display: grid; gap: 14px; }
+.stub-rows div { display: grid; gap: 2px; }
+.stub-rows .label { color: var(--gold); }
+.stub-rows strong { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+.stub-btn { text-align: center; box-shadow: 5px 5px 0 var(--white); }
+.barcode {
+  margin-top: auto; height: 54px; border-radius: 4px;
+  background: repeating-linear-gradient(90deg,
+    var(--white) 0 2px, transparent 2px 5px, var(--white) 5px 6px, transparent 6px 9px,
+    var(--white) 9px 12px, transparent 12px 14px, var(--white) 14px 15px, transparent 15px 19px);
+  opacity: 0.85;
+}
+
+/* Passport stamps */
+.stamps-wrap { margin-top: clamp(48px, 7vw, 88px); }
+.stamps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.stamps li { display: grid; place-items: center; }
+.stamps li:nth-child(1) .stamp { transform: rotate(-8deg); }
+.stamps li:nth-child(2) .stamp { transform: rotate(6deg); }
+.stamps li:nth-child(3) .stamp { transform: rotate(-4deg); }
+.stamps li:nth-child(4) .stamp { transform: rotate(9deg); }
+.stamp {
+  width: clamp(120px, 15vw, 168px); aspect-ratio: 1; border-radius: 50%;
+  display: grid; place-content: center; text-align: center; gap: 4px;
+  border: 3px dashed #9fb1c4; color: #8496ab; background: rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.6), inset 0 0 0 9px #c4d3e0;
+  transition: transform 0.3s, background 0.3s;
+}
+.stamp b { font-size: clamp(26px, 3vw, 38px); font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.stamp em { font: 600 11px/1.2 var(--mono); font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; }
+.stamps li.is-earned .stamp {
+  border: 3px solid var(--ink); color: var(--ink); background: var(--gold);
+  box-shadow: inset 0 0 0 7px var(--gold), inset 0 0 0 9px var(--ink), 6px 6px 0 var(--ink);
+}
+.stamps li.is-next .stamp { border-color: var(--ink); color: var(--ink); background: var(--white); }
+.stamps li.is-next .stamp em::after { content: "\A next stop"; white-space: pre; color: var(--gold-deep); }
+.stamps li:hover .stamp { transform: rotate(0) scale(1.05); }
+
+/* Share */
+.share-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px 56px; align-items: center; }
+.share-kicker { color: var(--gold); margin-bottom: 10px; }
+.share .section-intro { margin-bottom: 0; }
+.share-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.share-status { flex-basis: 100%; margin: 0; font: 500 13px/1.4 var(--mono); color: var(--gold); min-height: 1.4em; }
+
+/* Confetti when we land */
+.confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 30; }
+.confetti i { position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(105vh) rotate(720deg); } }
+
+@media (max-width: 900px) {
+  .pass { grid-template-columns: 1fr; }
+  .pass::before, .pass::after { display: none; }
+  .pass-stub::before { left: 18px; right: 18px; top: -1px; bottom: auto; width: auto; border-left: 0; border-top: 3px dashed rgba(255, 255, 255, 0.45); }
+  .stub-rows { grid-template-columns: repeat(3, auto); justify-content: start; gap: 14px 28px; }
+  .barcode { height: 40px; }
+  .stamps { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+  .share-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .route { grid-template-columns: 1fr 1fr; }
+  .route-path { grid-column: 1 / -1; grid-row: 2; }
+  .route-to { grid-row: 1; grid-column: 2; }
+  .tally-stats dd { font-size: 20px; }
+  .tally-stats div { padding: 0 12px; }
+  .stub-rows { grid-template-columns: 1fr 1fr; }
+  .stub-rows div:last-child { grid-column: 1 / -1; }
+  .sky-doodle { width: 70vw; opacity: 0.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .meter span { transition: none; }
+  .confetti { display: none; }
+}
