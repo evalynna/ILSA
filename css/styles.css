@@ -319,6 +319,29 @@ h3 { font-size: 21px; letter-spacing: -0.01em; }
 .footer-links a { display: block; }
 .fineprint { font: 400 12px/1.5 var(--mono); margin: 32px 0 0; }
 
+/* Crowdfunding */
+.fund { margin-top: 32px; padding: 22px 24px 26px; border: 2px solid var(--gold); max-width: 34em; }
+.fund .label { color: var(--gold); margin-bottom: 10px; }
+.fund p { margin: 0 0 18px; }
+
+/* ABA contact */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 32px 56px; align-items: start; }
+.contact-photo { margin: 0; }
+.contact-photo img { width: 100%; border: 8px solid var(--white); box-shadow: 8px 8px 0 var(--gold); }
+.contact-photo figcaption { font: 400 13px/1.5 var(--mono); color: #c7d5e6; padding-top: 16px; }
+.contact-role { color: var(--gold); margin: 0 0 24px; }
+.contact-grid p { color: #dbe6f3; max-width: 32em; margin: 0 0 18px; }
+.contact-grid .contact-lead { font-size: clamp(20px, 2vw, 26px); line-height: 1.25; color: var(--white); }
+.contact-grid .btn-row { margin: 28px 0 32px; }
+.contact-facts a { overflow-wrap: anywhere; }
+.contact-card { background: var(--white); border-left: 6px solid var(--gold); padding: 22px 24px; margin: 0 0 32px; max-width: 46em; }
+.contact-card h3 { margin: 8px 0 6px; font-size: 26px; text-transform: uppercase; }
+.contact-card p { margin: 0 0 12px; }
+.contact-card .label { color: var(--gold-deep); }
+.contact-card-role { font: 500 13px/1.4 var(--mono); color: var(--muted); }
+.contact-card-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0 !important; font: 600 13px/1.4 var(--mono); overflow-wrap: anywhere; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .contact-photo { max-width: 420px; } }
+
 @media (max-width: 900px) {
   .rail { grid-template-columns: 1fr; }
   .rail-label { position: static; }
